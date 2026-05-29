@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Study Planner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar glass-card">
+      <div>
+        <p class="eyebrow">Study Planner</p>
+        <h1>Student Study Dashboard</h1>
+      </div>
+      <div class="topbar-actions">
+        <button id="themeToggle" class="icon-btn" aria-label="Toggle dark mode">🌙</button>
+        <div class="streak-card glass-card">
+          <span>Streak</span>
+          <strong id="streakCount">0</strong>
+        </div>
+      </div>
+    </header>
+
+    <main class="grid-layout">
+      <section class="hero glass-card">
+        <div class="hero-copy">
+          <span class="eyebrow">Focus, plan, achieve</span>
+          <h2>Organize your study routine with ease.</h2>
+          <p>Track tasks, plan your calendar, and get motivated with a clean study workflow designed for students.</p>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-card">
+            <span>Completed</span>
+            <strong id="completedCount">0</strong>
+          </div>
+          <div class="stat-card">
+            <span>Total Tasks</span>
+            <strong id="totalCount">0</strong>
+          </div>
+          <div class="stat-card">
+            <span>Progress</span>
+            <strong id="progressPercent">0%</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="dashboard glass-card overview-card">
+        <div class="card-header">
+          <h3>Progress Tracker</h3>
+          <span id="taskSummary">Keep your momentum going.</span>
+        </div>
+        <div class="progress-bar-wrap">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <div class="tiles">
+          <div class="tile">
+            <span>Homework</span>
+            <strong id="homeworkCount">0</strong>
+          </div>
+          <div class="tile">
+            <span>Revision</span>
+            <strong id="revisionCount">0</strong>
+          </div>
+          <div class="tile">
+            <span>Exam Prep</span>
+            <strong id="examCount">0</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="tasks-panel glass-card">
+        <div class="card-header">
+          <h3>Study Tasks</h3>
+          <div class="filters">
+            <input id="searchInput" type="search" placeholder="Search tasks..." aria-label="Search tasks" />
+            <select id="filterCategory">
+              <option value="all">All Categories</option>
+              <option value="Homework">Homework</option>
+              <option value="Revision">Revision</option>
+              <option value="Assignment">Assignment</option>
+              <option value="Exam Prep">Exam Prep</option>
+            </select>
+          </div>
+        </div>
+
+        <form id="taskForm" class="task-form">
+          <input id="taskTitle" type="text" placeholder="Task title" required />
+          <input id="taskSubject" type="text" placeholder="Subject (e.g. Math)" />
+          <select id="taskCategory" required>
+            <option value="Homework">Homework</option>
+            <option value="Revision">Revision</option>
+            <option value="Assignment">Assignment</option>
+            <option value="Exam Prep">Exam Prep</option>
+          </select>
+          <div class="form-row">
+            <input id="taskDate" type="date" />
+            <button type="submit" class="primary-btn">Add Task</button>
+          </div>
+        </form>
+
+        <div id="taskList" class="task-list"></div>
+      </section>
+
+      <section class="calendar-panel glass-card">
+        <div class="card-header">
+          <h3>Calendar Planning</h3>
+          <span>Tap dates to view study goals.</span>
+        </div>
+        <div class="calendar-grid" id="calendarGrid"></div>
+      </section>
+
+      <section class="timer-panel glass-card">
+        <div class="card-header">
+          <h3>Pomodoro Timer</h3>
+          <span>25 min focus, 5 min break.</span>
+        </div>
+        <div class="timer-display" id="timerDisplay">25:00</div>
+        <div class="timer-controls">
+          <button id="startPauseBtn" class="secondary-btn">Start</button>
+          <button id="resetBtn" class="secondary-btn">Reset</button>
+        </div>
+        <div class="toggle-row">
+          <label><input type="radio" name="timerMode" value="study" checked /> Study</label>
+          <label><input type="radio" name="timerMode" value="break" /> Break</label>
+        </div>
+      </section>
+
+      <section class="schedule-panel glass-card">
+        <div class="card-header">
+          <h3>Daily Study Timetable</h3>
+          <span>Plan your ideal study day.</span>
+        </div>
+        <ul class="schedule-list">
+          <li><strong>08:00</strong> Review notes & warm-up</li>
+          <li><strong>10:00</strong> Homework session</li>
+          <li><strong>12:00</strong> Break / refresh</li>
+          <li><strong>14:00</strong> Revision block</li>
+          <li><strong>16:00</strong> Assignment work</li>
+          <li><strong>18:00</strong> Exam prep summary</li>
+        </ul>
+      </section>
+
+      <section class="quote-panel glass-card">
+        <div class="card-header">
+          <h3>Daily Motivation</h3>
+          <button id="newQuoteBtn" class="text-btn">New Quote</button>
+        </div>
+        <blockquote id="quoteText">"Your future is created by what you do today, not tomorrow."</blockquote>
+        <p id="quoteAuthor">— Robert Kiyosaki</p>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
